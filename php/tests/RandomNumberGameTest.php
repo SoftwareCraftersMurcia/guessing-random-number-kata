@@ -45,4 +45,15 @@ class RandomNumberGameTest extends TestCase
 
         self::assertEquals(new TryNumberResponse('Won', 2), $result);
     }
+
+    public function test_win_in_third_try(): void
+    {
+        $game = new RandomNumberGame(5);
+
+        $game->tryNumber(6);
+        $game->tryNumber(4);
+        $result = $game->tryNumber(5);
+
+        self::assertEquals(new TryNumberResponse('Won', 3), $result);
+    }
 }
