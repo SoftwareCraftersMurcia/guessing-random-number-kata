@@ -14,6 +14,10 @@ class RandomNumberGame
     {
         $this->tries++;
 
+        if ($this->tries === 3 && $number !== $this->randomNumber) {
+            return new TryNumberResponse('Lose', $this->tries);
+        }
+
         if ($number < $this->randomNumber) {
             return new TryNumberResponse('too low', $this->tries);
         }
