@@ -2,9 +2,9 @@
 
 namespace Kata;
 
-class TheClass
+class RandomNumberGame
 {
-    public function theMethod(): bool
+    public function tryNumber(int $int): bool
     {
         return true;
     }
