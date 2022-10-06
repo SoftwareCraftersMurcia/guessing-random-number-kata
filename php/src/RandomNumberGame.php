@@ -8,16 +8,16 @@ class RandomNumberGame
     {
     }
 
-    public function tryNumber(int $number): array
+    public function tryNumber(int $number): TryNumberResponse
     {
         if ($number < $this->randomNumber) {
-            return ['too low', 1];
+            return new TryNumberResponse('too low', 1);
         }
 
         if ($number > $this->randomNumber) {
-            return ['too high', 1];
+            return new TryNumberResponse('too high', 1);
         }
 
-        return ['Won', 1];
+        return new TryNumberResponse('Won', 1);
     }
 }
