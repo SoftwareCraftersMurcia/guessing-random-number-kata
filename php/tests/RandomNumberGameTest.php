@@ -79,4 +79,14 @@ class RandomNumberGameTest extends TestCase
         $game->tryNumber(4);
         $game->tryNumber(7);
     }
+
+    public function test_lose_in_second_try(): void
+    {
+        $game = new RandomNumberGame(5, 2);
+
+        $game->tryNumber(6);
+        $result = $game->tryNumber(4);
+
+        self::assertEquals(new TryNumberResponse('Lose', 2), $result);
+    }
 }
