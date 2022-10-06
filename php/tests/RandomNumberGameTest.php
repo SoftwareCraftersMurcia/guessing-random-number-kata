@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types = 1);
 
 namespace KataTests;
 
@@ -23,5 +24,14 @@ class RandomNumberGameTest extends TestCase
         $result = $game->tryNumber(1);
 
         self::assertSame('too low', $result);
+    }
+
+    public function test_higher_number(): void
+    {
+        $game = new RandomNumberGame(5);
+
+        $result = $game->tryNumber(6);
+
+        self::assertSame('too high', $result);
     }
 }
