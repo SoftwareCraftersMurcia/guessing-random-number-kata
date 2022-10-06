@@ -2,6 +2,9 @@
 
 namespace Kata;
 
+use http\Exception\RuntimeException;
+use function PHPUnit\Framework\throwException;
+
 class RandomNumberGame
 {
     private int $tries = 0;
@@ -13,6 +16,10 @@ class RandomNumberGame
     public function tryNumber(int $number): TryNumberResponse
     {
         $this->tries++;
+
+        if ($this->tries > 3) {
+            throw new \RuntimeException('Too many tries');
+        }
 
         if ($this->tries === 3 && $number !== $this->randomNumber) {
             return new TryNumberResponse('Lose', $this->tries);

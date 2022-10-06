@@ -67,4 +67,16 @@ class RandomNumberGameTest extends TestCase
 
         self::assertEquals(new TryNumberResponse('Lose', 3), $result);
     }
+
+    public function test_lose_in_fourth_try(): void
+    {
+        $this->expectExceptionMessage('Too many tries');
+
+        $game = new RandomNumberGame(5);
+
+        $game->tryNumber(6);
+        $game->tryNumber(4);
+        $game->tryNumber(4);
+        $game->tryNumber(7);
+    }
 }
