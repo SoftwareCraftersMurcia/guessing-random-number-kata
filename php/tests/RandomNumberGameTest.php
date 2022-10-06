@@ -14,7 +14,7 @@ class RandomNumberGameTest extends TestCase
 
         $result = $game->tryNumber(1);
 
-        self::assertSame('Ok', $result);
+        self::assertSame(['Won', 1], $result);
     }
 
     public function test_lower_number(): void
@@ -23,7 +23,7 @@ class RandomNumberGameTest extends TestCase
 
         $result = $game->tryNumber(1);
 
-        self::assertSame('too low', $result);
+        self::assertSame(['too low', 1], $result);
     }
 
     public function test_higher_number(): void
@@ -32,6 +32,6 @@ class RandomNumberGameTest extends TestCase
 
         $result = $game->tryNumber(6);
 
-        self::assertSame('too high', $result);
+        self::assertSame(['too high', 1], $result);
     }
 }
