@@ -1,4 +1,11 @@
-from src.main import MainClass
+from python.src.main import MainClass
 
-def test_MainClass_get_always_true():
-    MainClass.main_function() == True
+def test_given_a_number_always_is_true():
+    # given
+    number = 5
+
+    # when
+    result = MainClass.main_function(number)
+
+    # then
+    assert result == "WIN"
