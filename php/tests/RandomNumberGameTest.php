@@ -9,10 +9,19 @@ class RandomNumberGameTest extends TestCase
 {
     public function test_try_number(): void
     {
-        $game = new RandomNumberGame();
+        $game = new RandomNumberGame(1);
 
         $result = $game->tryNumber(1);
 
-        self::assertEquals(true, $result);
+        self::assertSame('Ok', $result);
+    }
+
+    public function test_lower_number(): void
+    {
+        $game = new RandomNumberGame(5);
+
+        $result = $game->tryNumber(1);
+
+        self::assertSame('too low', $result);
     }
 }

@@ -4,8 +4,16 @@ namespace Kata;
 
 class RandomNumberGame
 {
-    public function tryNumber(int $int): bool
+    public function __construct(private int $randomNumber)
     {
-        return true;
+    }
+
+    public function tryNumber(int $number): string
+    {
+        if($number < $this->randomNumber) {
+            return 'too low';
+        }
+
+        return 'Ok';
     }
 }
