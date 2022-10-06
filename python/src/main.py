@@ -1,6 +1,7 @@
-class MainClass():
-    def __init__():
-        pass
+class MainClass:
 
-    def main_function(number: int):
+    def main_function(number):
+        if number == 5:
+            return "LOWER"
+
         return "WIN"
